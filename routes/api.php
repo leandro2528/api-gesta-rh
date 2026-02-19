@@ -3,6 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\TestController;
+
+use App\Http\Controllers\Api\StatusClienteController;
+use App\Http\Controllers\Api\ClienteController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,9 +20,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/ping', function() {
-    return response()->json([
-        'status' => 'ok',
-        'message' => 'API está viva'
-    ]);
-});
+Route::get('/status-clientes', [StatusClienteController::class, 'index']);
+Route::apiResource('clientes', ClienteController::class);
