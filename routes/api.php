@@ -14,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-Route::get('/test', function () {
+Route::get('/ping', function() {
     return response()->json([
-        'message' => 'API funcionando'
+        'status' => 'ok',
+        'message' => 'API está viva'
     ]);
 });
